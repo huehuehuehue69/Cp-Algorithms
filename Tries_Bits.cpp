@@ -84,6 +84,7 @@ public:
 		node* curr = root;
 		for (int i = 31; i >= 0; i--) {
 			if (num & (1 << i)) {
+				
 				if (curr->child[1] == NULL) {
 					curr->child[1] = new node();
 				}
@@ -102,6 +103,8 @@ public:
 		node* curr = root;
 		for (int i = 31; i >= 0; i--) {
 			if (num & (1 << i)) {
+				//for minimum same bit 
+				//for maximum diff bit
 				if (curr->child[1] != NULL) {
 					curr = curr->child[1];
 				}
@@ -114,6 +117,8 @@ public:
 				}
 			}
 			else {
+				//for minimum same bit 
+				//for maximum diff bit
 				if (curr->child[0] != NULL) {
 					curr = curr->child[0];
 				}
