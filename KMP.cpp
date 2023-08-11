@@ -122,3 +122,37 @@ int32_t main() {
 	}
 	return 0;
 }
+
+
+
+
+
+//for subtring frequency in a string 
+void soluchan(int t)
+{
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	vector<int>lps(n);
+	lps[0] = 0;
+	for (int i = 1; i < n; i++) {
+		int j = lps[i - 1];
+		while (j > 0 && s[i] != s[j]) {
+			j = lps[j - 1];
+		}
+		if (s[i] == s[j]) {
+			j++;
+		}
+		lps[i] = j;
+	}
+	cout << "Test case #" << t << endl;
+	for (int i = 0; i < n; i++) {
+		int res = i + 1 - lps[i];
+		if (lps[i] > 0 && (i + 1) % res == 0) {
+			cout << i + 1 << " " << ((i + 1) / res) << endl;
+		}
+	}
+	cout << endl;
+}
+
