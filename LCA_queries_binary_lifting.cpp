@@ -75,7 +75,9 @@ void soluchan()
 		cin >> a >> b;
 		a--;
 		b--;
+		//lca
 		int w = lca(a, b, x);
+		//distance between two nodes
 		int res = depth[a] + depth[b] - (2 * depth[w]);
 		cout << res << endl;
 	}
