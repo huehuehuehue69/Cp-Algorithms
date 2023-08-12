@@ -16,17 +16,16 @@ void build(vector<int>&par, int x, int n) {
 	}
 }
 
-int find_kth(int s, int k, int x) {
-	for (int j = x; j >= 0; j--) {
-		if ((1 << j) & k) {
-			s = dp[s][j];
-			k -= (1 << j);
-			if (s == -1) {
-				return -1;
-			}
+int find_kth(int node, int k) {
+	int z = 0;
+	while (k > 0) {
+		if (k & 1) {
+			node = dp[node][z];
 		}
+		z++;
+		k >>= 1;
 	}
-	return s + 1;
+	return node + 1;
 }
 void soluchan()
 {
@@ -45,6 +44,6 @@ void soluchan()
 		int a, b;
 		cin >> a >> b;
 		a--;
-		cout << find_kth(a, b, x) << endl;
+		cout << find_kth(a, b) << endl;
 	}
 }
